@@ -1,0 +1,119 @@
+.employee .employee__form {
+  width: 700px;
+  margin: 60px auto;
+}
+.input__resize {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.input__resize2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.input__group {
+  width: 49%;
+  margin-bottom: 15px;
+}
+input {
+  width: 100%;
+  padding: 12px 23px;
+  font-size: 17px;
+  display: block;
+  border: 0;
+  outline: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.section-week {
+  width: 100%;
+  padding: 12px 23px;
+  font-size: 17px;
+  display: block;
+  border: 0;
+  outline: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.btn__summit {
+  width: 100%;
+  display: block;
+  padding: 12px;
+  background: #7968dc;
+  border: none;
+  outline: 0;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* data show csss  */
+.employee .employee__show .show__heading ul {
+  display: flex;
+  justify-content: space-between;
+}
+.employee .employee__show .show__heading ul li {
+  width: 19%;
+  background: #f0f0f0;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+}
+.employee .employee__show .show__heading ul li h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.employee .employee__show .show__data ul {
+  display: flex;
+  justify-content: space-between;
+}
+.employee .employee__show .show__data ul li {
+  width: 19%;
+  background: #7968dc;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+  color: #fff;
+  margin-top: 17px;
+}
+.employee .employee__show .show__data ul li button {
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+}
+.employee .employee__show .show__data ul li .edit {
+  background: #2ecc71;
+}
+.employee .employee__show .show__data ul li .delete {
+  background: #c0392b;
+}
+.employee .employee__show .show__data ul li:last-child {
+  background: transparent;
+  padding: 0;
+}

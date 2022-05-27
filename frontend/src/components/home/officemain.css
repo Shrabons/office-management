@@ -1,0 +1,36 @@
+.office {
+  display: flex;
+}
+
+.office .office__left {
+  width: 20%;
+  background: #7968dc;
+  height: 100vh;
+}
+.office .office__left img {
+  width: 100%;
+}
+.office .office__right {
+  width: 80%;
+}
+
+.office .office__left .left__bio {
+  color: #fff;
+  margin: 18px 0px 40px;
+  margin-left: 22px;
+}
+.office .office__left .left__bio h4 {
+  text-transform: capitalize;
+  font-size: 17px;
+}
+.office .office__left .left__bio h4 span {
+  font-weight: 300;
+}
+.office .office__left .office__navbar ul li {
+  padding: 13px 22px;
+  color: #fff;
+  cursor: pointer;
+}
+.office .office__left .office__navbar ul li:hover {
+  background: #6850f0;
+}
