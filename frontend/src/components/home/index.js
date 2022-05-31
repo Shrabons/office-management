@@ -3,27 +3,40 @@ import ProfileImg from '../../images/man.png'
 import Classtime from './classtime/Classtime'
 import Employee from './employee/Employee'
 import './officemain.css'
+import Post from './post/Post'
+import PostDetails from './postDetails/PostDetails'
 const OfficeMain = () => {
 
     let [employee, setEmployee] = useState(true)
     let [todayclass, setTodayclass] = useState(false)
     let [post, setPost] = useState(false)
+    let [postDetails, setPostDetails] = useState(false)
 
     const handleEmployee = () => {
+        setPostDetails(false)
         setEmployee(true)
         setTodayclass(false)
         setPost(false)
     }
 
     const handleClass = () => {
+        setPostDetails(false)
         setPost(false)
         setEmployee(false)
         setTodayclass(true)
     }
     const handlePost = () => {
+        setPostDetails(false)
         setEmployee(false)
         setTodayclass(false)
         setPost(true)
+    }
+
+    const handleDetails = () => {
+        setEmployee(false)
+        setTodayclass(false)
+        setPost(false)
+        setPostDetails(true)
     }
 
   return (
@@ -44,7 +57,7 @@ const OfficeMain = () => {
                     <li onClick={handleEmployee}>Emplyee List</li>
                     <li onClick={handleClass}>Today’s Class</li>
                     <li onClick={handlePost}>Post Activity</li>
-                    <li>Activity List</li>
+                    <li onClick={handleDetails}>Activity Details</li>
                     <li>Apply for Leave</li>
                     <li>Late List</li>
                 </ul>
@@ -65,9 +78,15 @@ const OfficeMain = () => {
                ""
                }
                {post ? 
-                <h1>post</h1> 
+               <Post />
                : 
                ""
+               }
+               {postDetails ?
+                <PostDetails />
+               :
+               ""
+                
                }
            </div>
        </div>

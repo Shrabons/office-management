@@ -131,6 +131,8 @@ const Employee = () => {
                             </li>
                         </ul>
                     ))}
+
+                    {/* edit file  */}
                     <div className="edit__model">
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>

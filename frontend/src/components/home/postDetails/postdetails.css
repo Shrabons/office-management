@@ -1,0 +1,88 @@
+.postdetails {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.postdetails .postdetails__show .show__heading ul {
+  display: flex;
+  justify-content: space-between;
+}
+.postdetails .postdetails__show .show__heading ul li:nth-child(1) {
+  width: 20%;
+}
+.postdetails .postdetails__show .show__heading ul li:nth-child(2) {
+  width: 11%;
+}
+.postdetails .postdetails__show .show__heading ul li:nth-child(3) {
+  width: 50%;
+}
+.postdetails .postdetails__show .show__heading ul li:nth-child(4) {
+  width: 15%;
+}
+.postdetails .postdetails__show .show__heading ul li {
+  background: #f0f0f0;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+}
+.postdetails .postdetails__show .show__heading ul li h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.postdetails .postdetails__show .show__data ul {
+  display: flex;
+  justify-content: space-between;
+}
+.postdetails .postdetails__show .show__data ul li:nth-child(1) {
+  width: 20%;
+}
+.postdetails .postdetails__show .show__data ul li:nth-child(2) {
+  width: 11%;
+}
+.postdetails .postdetails__show .show__data ul li:nth-child(3) {
+  text-align: left;
+  width: 50%;
+  padding: 5px 15px;
+}
+.postdetails .postdetails__show .show__data ul li:nth-child(4) {
+  width: 15%;
+}
+.postdetails .postdetails__show .show__data ul li {
+  background: #7968dc;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+  color: #fff;
+  margin-top: 17px;
+}
+.postdetails .postdetails__show .show__data ul li button {
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+}
+.postdetails .postdetails__show .show__data ul li .edit {
+  background: #2ecc71;
+}
+.postdetails .postdetails__show .show__data ul li .delete {
+  background: #c0392b;
+}
+.postdetails .postdetails__show .show__data ul li:last-child {
+  background: transparent;
+  padding: 0;
+}
+.modal-content {
+  width: 800px;
+}

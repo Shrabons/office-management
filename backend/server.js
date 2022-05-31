@@ -3,6 +3,7 @@ var cors = require('cors')
 const app = express()
 const Employee = require('./Model/employee.js')
 const Classtime = require('./Model/classtimeModel.js')
+const Post = require('./Model/postModel.js')
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://learn:learn123@cluster0.yxoos.mongodb.net/officeManagebd?retryWrites=true&w=majority', ()=>{
     console.log("DB connented !")
@@ -97,8 +98,6 @@ app.get('/classDetails/:id', async (req,res)=> {
 })
 
 app.put('/classDetails/:id', (req,res)=> {
-  
-    console.log(req.body.room)
     let upClassData = {
         batch: req.body.batch,
         time: req.body.time,
@@ -113,7 +112,64 @@ app.put('/classDetails/:id', (req,res)=> {
         }
     })
 
+})
+
+// post activity working 
+
+app.post('/post', (req, res) => {
+    let postData = {
+        name: req.body.name,
+        time: req.body.time,
+        details: req.body.details,
+    }
+
+    const postdb = new Post(postData)
+    postdb.save()
+   
+})
+
+app.get('/postdetails', async (req, res) => {
+    const allPost = await Post.find({})
+    res.send(allPost)
+})
+
+app.delete('/postdetails/:id', (req, res) =>{
+    Post.findByIdAndDelete(req.params.id, function(err, docs) {
+        if(err){
+            console.log(err)
+        }else{
+            console.log(docs)
+        }
+    })
+})
+
+app.get('/postdetails/:id', async (req, res) => {
+    
+    let datapost = await Post.findById(req.params.id)
+    res.send(datapost)
 
 })
+
+
+app.put('/postdetails/:id', (req, res) => {
+    // console.log(req.params.id)
+    // console.log(req.body.name)
+    // console.log(req.body.time)
+    // console.log(req.body.details)
+    let upDatatPost = {
+        name: req.body.name,
+        time: req.body.time,
+        details: req.body.details
+    }
+
+    Post.findByIdAndUpdate(req.params.id,upDatatPost, function(err, docs){
+        if(err){
+            console.log(err)
+        }else {
+            console.log(docs)
+        }
+    })
+})
+
 
 app.listen('5000', ()=> console.log("server runing port 5000"))
