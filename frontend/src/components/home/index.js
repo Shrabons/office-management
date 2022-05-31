@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ProfileImg from '../../images/man.png'
+import Classtime from './classtime/Classtime'
 import Employee from './employee/Employee'
 import './officemain.css'
 const OfficeMain = () => {
@@ -59,7 +60,7 @@ const OfficeMain = () => {
                ""
                }
                {todayclass ? 
-                <h1>today class</h1> 
+                <Classtime />
                : 
                ""
                }
