@@ -18,7 +18,7 @@ const Post = () => {
             details: details
         })
 
-        console.log(data)
+        
     }
 
 

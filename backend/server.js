@@ -1,16 +1,47 @@
 const express = require('express')
 var cors = require('cors')
 const app = express()
+const bcrypt = require('bcrypt')
 const Employee = require('./Model/employee.js')
 const Classtime = require('./Model/classtimeModel.js')
+const Siginup = require('./Model/signupModel.js')
 const Post = require('./Model/postModel.js')
 const mongoose = require('mongoose');
+const e = require('cors')
 mongoose.connect('mongodb+srv://learn:learn123@cluster0.yxoos.mongodb.net/officeManagebd?retryWrites=true&w=majority', ()=>{
     console.log("DB connented !")
 })
 
 app.use(cors())
 app.use(express.json())
+
+
+// Siginup working function 
+app.post('/signup', async (req, res) =>{
+
+    const emailerror = await Siginup.find({email: req.body.email})
+    
+    if(emailerror[0]){
+        res.send(`${req.body.email} Your email already exits !`)
+        console.log(`${req.body.email} Your email already exits !`)
+    }else {
+        bcrypt.hash(req.body.password, 10, function(err, hash){
+            const userInfo = {
+                username: req.body.username,
+                email: req.body.email,
+                password: hash,
+                cpassword: hash,
+            }
+        
+            const signupDb = new Siginup(userInfo)
+            signupDb.save()
+        })
+    }
+  
+       
+    
+        
+})
 
 app.post('/', (req, res)=>{
     const employers = {
