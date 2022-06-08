@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const Employee = require('./Model/employee.js')
 const Classtime = require('./Model/classtimeModel.js')
 const Siginup = require('./Model/signupModel.js')
+const Mainpost = require('./Model/mainpostModel.js')
 const Post = require('./Model/postModel.js')
 const mongoose = require('mongoose');
 const e = require('cors')
@@ -15,6 +16,29 @@ mongoose.connect('mongodb+srv://learn:learn123@cluster0.yxoos.mongodb.net/office
 app.use(cors())
 app.use(express.json())
 
+
+
+app.post('/postmain', (req, res)=> {
+    console.log(req.body)
+    const mainpostInfo = {
+        name:req.body.name,
+        time: req.body.time,
+        department: req.body.dep,
+        day: req.body.day,
+        descripation: req.body.despation
+        
+    }
+
+    const maindb = new Mainpost(mainpostInfo)
+    maindb.save()
+
+})
+
+app.get('/postmain', async (req, res)=> {
+    const Data = await Mainpost.find({})
+    res.send(Data)
+
+})
 
 // Siginup working function 
 app.post('/signup', async (req, res) =>{
@@ -41,6 +65,28 @@ app.post('/signup', async (req, res) =>{
        
     
         
+})
+
+// login function working 
+app.post('/login', async (req, res)=>{
+    console.log(req.body.password)
+    let data = await Siginup.find({email: req.body.email})
+ 
+    if(data[0]){
+        bcrypt.compare(req.body.password, data[0].password, function(err, result){
+        
+            if(result){
+                res.send({data: data[0], msg: 'Accound Found !'})
+            }else{
+                res.send({msg: 'Accound Not Found !'})
+            }
+        })
+    }else{
+        res.send({msg: 'Eamil Not Found !'})
+    }
+   
+
+   
 })
 
 app.post('/', (req, res)=>{

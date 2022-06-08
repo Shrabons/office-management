@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './signup.css'
 
 const Signupcom = () => {
 
+    let navigate = useNavigate()
     let [username, setUsername] = useState("")
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
@@ -39,22 +40,24 @@ const Signupcom = () => {
         }else if (password !== cpassword) {
             setErr("Your password not a mash !")
         }else {
-            useEffect(()=>{
-                let {data} = await axios.post('http://localhost:5000/signup',{
-                username: username,
-                email: email,
-                password: password,
-                cpassword: cpassword
+         
+            let {data} = await axios.post('http://localhost:5000/signup',{
+            username: username,
+            email: email,
+            password: password,
+            cpassword: cpassword
 
-                })
-                setErremail(data)
-                setUsername("")
-                setEmail("")
-                setPassword("")
-                setCpassword("")
-            },[])
+            })
+            setErremail(data)
+            navigate('/login')
+            setUsername("")
+            setEmail("")
+            setPassword("")
+            setCpassword("")
+           
            
         }
+    
     }
 
   return (

@@ -1,8 +1,25 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './login.css'
 
 const logincom = () => {
+
+   
+    let [email, setEmail] = useState("")
+    let [password, setPassword] = useState("")
+
+    const handleLogin = async (e) => {
+        e.preventDefault()
+
+        let {data} = await axios.post('http://localhost:5000/login',{
+            email: email,
+            password: password
+        })
+        console.log(data)
+    }
+
+
   return (
     <>
         <div className="login">
@@ -16,13 +33,13 @@ const logincom = () => {
                    
                     <div className="form__group">
                         <label htmlFor="useremail">Email</label>
-                        <input type="email"  id="useremail" placeholder='Enter the email' />
+                        <input type="email"  id="useremail" placeholder='Enter the email' onChange={(e)=> setEmail(e.target.value)} />
                     </div>
                     <div className="form__group">
                         <label htmlFor="password">Password</label>
-                        <input type="password"  id="password" placeholder='Enter the password' />
+                        <input type="password"  id="password" placeholder='Enter the password' onChange={(e)=> setPassword(e.target.value)} />
                     </div>
-                    <button className="btn__login" type="submit" >Login</button>
+                    <button className="btn__login" onClick={handleLogin} type="submit" >Login</button>
                     
                 </form>
                 <div className="account">

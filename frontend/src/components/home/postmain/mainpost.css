@@ -1,0 +1,34 @@
+.employee__form {
+  width: 800px;
+  margin: 60px auto;
+}
+/* data show csss  */
+.show__heading ul {
+  display: flex;
+  justify-content: space-between;
+}
+.show__heading ul li {
+  width: 19%;
+  background: #f0f0f0;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+}
+.show__heading ul li h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.show__data ul {
+  display: flex;
+  justify-content: space-between;
+}
+.show__data ul li {
+  width: 19%;
+  background: #7968dc;
+  text-align: center;
+  font-weight: 500;
+  padding: 12px 0;
+  color: #fff;
+  margin-top: 17px;
+}

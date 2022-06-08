@@ -5,14 +5,17 @@ import Employee from './employee/Employee'
 import './officemain.css'
 import Post from './post/Post'
 import PostDetails from './postDetails/PostDetails'
+import Mainpost from './postmain/Mainpost'
 const OfficeMain = () => {
 
     let [employee, setEmployee] = useState(true)
     let [todayclass, setTodayclass] = useState(false)
     let [post, setPost] = useState(false)
     let [postDetails, setPostDetails] = useState(false)
+    let [postmain, setPostmain] = useState(false)
 
     const handleEmployee = () => {
+        setPostmain(false)
         setPostDetails(false)
         setEmployee(true)
         setTodayclass(false)
@@ -20,12 +23,14 @@ const OfficeMain = () => {
     }
 
     const handleClass = () => {
+        setPostmain(false)
         setPostDetails(false)
         setPost(false)
         setEmployee(false)
         setTodayclass(true)
     }
     const handlePost = () => {
+        setPostmain(false)
         setPostDetails(false)
         setEmployee(false)
         setTodayclass(false)
@@ -33,10 +38,19 @@ const OfficeMain = () => {
     }
 
     const handleDetails = () => {
+        setPostmain(false)
         setEmployee(false)
         setTodayclass(false)
         setPost(false)
         setPostDetails(true)
+    }
+  
+    const handleMainPost = () => {
+        setEmployee(false)
+        setTodayclass(false)
+        setPost(false)
+        setPostDetails(false)
+        setPostmain(true)
     }
 
   return (
@@ -58,7 +72,7 @@ const OfficeMain = () => {
                     <li onClick={handleClass}>Today’s Class</li>
                     <li onClick={handlePost}>Post Activity</li>
                     <li onClick={handleDetails}>Activity Details</li>
-                    <li>Apply for Leave</li>
+                    <li onClick={handleMainPost}>Apply for Leave</li>
                     <li>Late List</li>
                 </ul>
             </nav>
@@ -84,6 +98,12 @@ const OfficeMain = () => {
                }
                {postDetails ?
                 <PostDetails />
+               :
+               ""
+                
+               }
+               {postmain ?
+               <Mainpost />
                :
                ""
                 
